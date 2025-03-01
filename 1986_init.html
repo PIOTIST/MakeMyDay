@@ -1,0 +1,278 @@
+e = campaignTrail_temp;
+
+  const startScreenUpdater = setInterval(function() {
+      const goBackButton = document.getElementById("candidate_id_back");
+      const candidateButton = document.getElementById("candidate_id_button");
+      const runningMateButton = document.getElementById("running_mate_id_button");
+      const finalScreenBB = document.getElementById("opponent_selection_id_back");
+      const finalScreenID = document.getElementById("opponent_selection_id_button");
+      
+      if((candidateButton || c != 0)&& !runningMateButton){ // change theme on candidate viewing
+          var c = document.getElementById("candidate_id")?.value ?? -1;
+          if(c == 24 && !(candidateButton) && !(runningMateButton)) {
+              goBackButton.click();
+              const initContinue = document.getElementById("election_id_button");
+              initContinue.click();
+          }
+          else if(c == 23 || c == 25 || c == 91) {
+              if(candidateButton) {
+                  candidateButton.remove();
+              }
+          }
+      }
+      
+      else if(!candidateButton && runningMateButton) { 
+          runningMateButton.click();
+          const finalBack = document.getElementById("opponent_selection_id_back");
+          finalBack.remove();
+          observer.disconnect()
+      }
+  
+      if(finalScreenID && finalScreenBB) { // delete back button and delete the interval
+          finalScreenBB.remove();
+          clearInterval(startScreenUpdater);
+      }
+  }, 1);
+
+campaignTrail_temp.election_json = [
+    {
+        "model": "campaign_trail.election",
+        "pk": 15,
+        "fields": {
+            "year": 1988,
+            "summary": "<p>In the Monterey Peninsula, a scenic seaside and quiet little town called Carmel-by-the-Sea in the State of California kicks off a mayoral election in a closely watched and intensely contested race between incumbent Charlotte Townsend, who has the record of serving the city for four years, and the nationally known Hollywood superstar Clint Eastwood, who has been a fourteen-year long resident.</p><p><ul><li>Charlotte Townsend has a record of being the incumbent two-term mayor, and needs to use that to her advantage while also needing to slowdown the popularity of Dirty Harry.</li><ul><li>Clint Eastwood needs to figure out how to balance connecting with the local community while revealing the out-of-touch policies from the city hall under Townsend.</li>",
+            "image_url": "https://i.imgur.com/UkE7WUj.png",
+            "winning_electoral_vote_number": 270,
+            "advisor_url": "https://i.imgur.com/6vrKN6G.png",
+            "recommended_reading": "<h4 style=\"margin-top: 0.5em;\">Books and Links</h4>Peter Goldman - <a href=\"http://www.amazon.com/exec/obidos/ASIN/B012HU7SZA/amhius20-20\" target=\"_blank\">The Quest for the Presidency, 1988</a></br>L.A. Times, November 10, 1988 - <a href=\"http://articles.latimes.com/1988-11-10/news/mn-299_1_dukakis-lost-reelection\" target=\"_blank\">How Presidential Race Was Won-and Lost : Michael S. Dukakis</a></br>L.A. Times, November 10, 1988 - <a href=\"http://articles.latimes.com/1988-11-10/news/mn-302_1_george-bush\" target=\"_blank\">How Presidential Race Was Won--and Lost : George Bush</a></br><a href=\"http://www.usnews.com/news/articles/2008/01/17/the-photo-op-that-tanked\" target=\"_blank\">Michael Dukakis: The Photo Op That Tanked</a>",
+            "has_visits": 0,
+            "no_electoral_majority_image": "https://www.jetsimon.com/public/static/images/2012-no-majority.jpg",
+            "creator": "Dan Bryan",
+            "display_year": "1986: Make My Day"
+        }
+    }
+]
+
+campaignTrail_temp.candidate_json = [
+    {
+        "model": "campaign_trail.candidate",
+        "pk": 152,
+        "fields": {
+            "first_name": "Clint",
+            "last_name": "Eastwood",
+            "election": 15,
+            "party": "Republican",
+            "state": "California",
+            "priority": 1,
+            "description": "\n<p>Nationally known as the tough film cop Dirty Harry and the Man with No Name, the famed actor and director Clint Eastwood aims to run as the Mayor of Carmel-by-the-Sea upon entering the political arena. Clint Eastwood, a man who fought with his fists and guns in dozen of movies never considered running for any public office as apart of his life career accomplishments.</p><p>However as a part-time bar restaurant owner downtown, Eastwood understands the problems of the chasm between the residents of Carmel and the business community that appeared to be worsening every day during a time of negative attitude being rampant in the town caused by the council regime at city hall. Though his background as a boy raised up in San Francisco and being called a disgruntled real estate developer by the mayor might be a problem on the campaign trail with Clint, the quiet seaside town of Carmel-by-the-Sea is his home. This is where he chose to live, where his friends live, and where his heart is.</p>",
+            "color_hex": "#d66860",
+            "secondary_color_hex": "#FFA0A0",
+            "is_active": 1,
+            "image_url": "https://i.imgur.com/UBwj3NX.png",
+            "electoral_victory_message": "<h3>Congratulations! You have won the 1986 election.</h3>",
+            "electoral_loss_message": "<h3>Sorry! You have lost the 1986 election.</h3>",
+            "no_electoral_majority_message": "<h3>Sorry! You have lost the 1986 election.</h3>",
+            "description_as_running_mate": "'",
+            "candidate_score": 1,
+            "running_mate": false
+        }
+    },
+    {
+        "model": "campaign_trail.candidate",
+        "pk": 153,
+        "fields": {
+            "first_name": "Charlotte",
+            "last_name": "Townsend",
+            "election": 15,
+            "party": "Republican",
+            "state": "California",
+            "priority": 2,
+            "description": "'",
+            "color_hex": "#676f9c",
+            "secondary_color_hex": "#90C0FF",
+            "is_active": 0,
+            "image_url": "'",
+            "electoral_victory_message": "'",
+            "electoral_loss_message": "'",
+            "no_electoral_majority_message": "'",
+            "description_as_running_mate": "'",
+            "candidate_score": 1,
+            "running_mate": false
+        }
+    },
+    {
+        "model": "campaign_trail.candidate",
+        "pk": 154,
+        "fields": {
+            "first_name": "Timothy",
+            "last_name": "Grady",
+            "election": 15,
+            "party": "Environmentalist",
+            "state": "California",
+            "priority": 3,
+            "description": "'",
+            "color_hex": "#73bc80",
+            "secondary_color_hex": "#FFFFC0",
+            "is_active": 0,
+            "image_url": "'",
+            "electoral_victory_message": "'",
+            "electoral_loss_message": "'",
+            "no_electoral_majority_message": "'",
+            "description_as_running_mate": "'",
+            "candidate_score": 1,
+            "running_mate": false
+        }
+    },
+    {
+        "model": "campaign_trail.candidate",
+        "pk": 155,
+        "fields": {
+            "first_name": "Paul",
+            "last_name": "Laub",
+            "election": 15,
+            "party": "Independent",
+            "state": "California",
+            "priority": 4,
+            "description": "'",
+            "color_hex": "#d4c772",
+            "secondary_color_hex": "#A1FFA1",
+            "is_active": 0,
+            "image_url": "'",
+            "electoral_victory_message": "'",
+            "electoral_loss_message": "'",
+            "no_electoral_majority_message": "'",
+            "description_as_running_mate": "'",
+            "candidate_score": 1,
+            "running_mate": false
+        }
+    },
+    {
+        "model": "campaign_trail.candidate",
+        "pk": 156,
+        "fields": {
+            "first_name": "Dan",
+            "last_name": "Quayle",
+            "election": 15,
+            "party": "Republican",
+            "state": "Indiana",
+            "priority": 5,
+            "description": "'",
+            "color_hex": "#FF0000",
+            "secondary_color_hex": "#FFA0A0",
+            "is_active": 0,
+            "image_url": "https://www.jetsimon.com/public/static/images/dan-quayle-1988.jpg",
+            "electoral_victory_message": "'",
+            "electoral_loss_message": "'",
+            "no_electoral_majority_message": "'",
+            "description_as_running_mate": "<p>Dan Quayle has served as a Senator from Indiana for the past seven years. He would be an unexpected choice, and the first baby boomer to run on a national ticket. He does not have a long record of achievement at the highest stage, but he could have some appeal to social conservatives, Midwesterners, and younger voters. There is some skepticism about his intellect, and his campaigning and debating ability.</p>",
+            "candidate_score": 0,
+            "running_mate": true
+        }
+    }
+]
+
+campaignTrail_temp.running_mate_json = [
+    {
+        "model": "campaign_trail.running_mate",
+        "pk": 98,
+        "fields": {
+            "candidate": 152,
+            "running_mate": 156
+        }
+    }
+]
+
+campaignTrail_temp.credits = "Plotist, with map made by CatBox and code borrowed from ItsAstronomical"
+
+campaignTrail_temp.global_parameter_json = [
+    {
+        "model": "campaign_trail.global_parameter",
+        "pk": 1,
+        "fields": {
+            "vote_variable": 1.125,
+            "max_swing": 0.12,
+            "start_point": 0.94,
+            "candidate_issue_weight": 10,
+            "running_mate_issue_weight": 3,
+            "issue_stance_1_max": -0.71,
+            "issue_stance_2_max": -0.3,
+            "issue_stance_3_max": -0.125,
+            "issue_stance_4_max": 0.125,
+            "issue_stance_5_max": 0.3,
+            "issue_stance_6_max": 0.71,
+            "global_variance": 0.01,
+            "state_variance": 0.005,
+            "question_count": 25,
+            "default_map_color_hex": "#C9C9C9",
+            "no_state_map_color_hex": "#999999"
+        }
+    }
+]
+
+campaignTrail_temp.opponents_default_json = [
+    {
+        "election": 15,
+        "candidates": [
+            152,
+            153,
+            154,
+            155
+        ]
+    }
+]
+
+campaignTrail_temp.opponents_weighted_json = [
+    {
+        "election": 15,
+        "candidates": [
+            152,
+            153,
+            154,
+            155
+        ]
+    }
+]
+
+campaignTrail_temp.temp_election_list = [
+    {
+        "id": 15,
+        "year": 1988,
+        "is_premium": 0,
+        "display_year": "1986: Make My Day"
+    }
+]
+
+jet_data = {
+    "headerColor": "#9c1e02",
+    "windowColor": "#44abd4",
+    "containerColor": "#44abd4",
+    "innerWindowColor": "#3b91c1",
+    "bannerImageUrl": "https://i.imgur.com/9dfs45h.png",
+    "backgroundImageUrl": "https://i.imgur.com/QMy3JT5.jpeg",
+    "endingTextColor": "#000000",
+    "customQuote": ""
+}
+
+//#startcode
+
+
+
+nct_stuff.themes[nct_stuff.selectedTheme].coloring_title = "#9c1e02";
+
+nct_stuff.themes[nct_stuff.selectedTheme].coloring_window = "#44abd4";
+
+document.getElementsByClassName("game_header")[0].style.backgroundColor = nct_stuff.themes[nct_stuff.selectedTheme].coloring_title;
+
+$("#game_window")[0].style.backgroundColor = nct_stuff.themes[nct_stuff.selectedTheme].coloring_window;
+
+$(".container")[0].style.backgroundColor = "#44abd4";
+
+$("#game_window")[0].style.backgroundImage = "url(https://i.imgur.com/oTO1JTI.png)"
+
+document.getElementById("header").src = "https://i.imgur.com/9dfs45h.png";
+
+document.body.background = "https://i.imgur.com/QMy3JT5.jpeg";
+
+document.head.innerHTML += "<style>#results_container {color:#000000;} .inner_window_w_desc {background-color:#3b91c1!important;}</style>";
+
+//#endcode
